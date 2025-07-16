@@ -5,7 +5,7 @@ Example project using MATLAB, MATLAB Coder, Dockers, and Kubernetes
 MATLAB
 
 File Name: ASTE_580_WEHMER_HW7_P1.m
-- The MATLAB file is a multi-solution solver for the 3-Body problem in Orbital Mechanics. This script was originally created to solve a homework problem at the University of Southern California; ASTE 580, Orbital Mechanics
+- The MATLAB file is a multi-solution solver for the 3-Body Problem in Orbital Mechanics. This script was originally created to solve a homework problem at the University of Southern California; ASTE 580, Orbital Mechanics
 
 
 MATLAB Coder
