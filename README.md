@@ -11,7 +11,7 @@ File Name: ASTE_580_WEHMER_HW7_P1.m
 MATLAB Coder
 
 File Name: ASTE_580_WEHMER_HW7_P1.cpp
-- MATLAB Coder is not a feature I have native to my personal MATLAB software. For purposes of demonstrating how to use the MATLAB Coder, here is the commands I would run to generate C code from the MATLAB file:
+- MATLAB Coder is not a feature I have native to my personal MATLAB software. For purposes of demonstrating how to use the MATLAB Coder, here is the command I would run to generate C code from the MATLAB file:
 
 codegen -config:lib -lang:c++ ASTE580_WEHMER_HW7_P1
 
