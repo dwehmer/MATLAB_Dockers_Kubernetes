@@ -49,15 +49,22 @@ CI/CD Pipeline
 
 How to test:
 
+
 Download the files, navigate to the correct folder in bash.
 
+
 Send the following bash command:
+
 docker build -t aste580-app:latest .
+
 
 Once successfully built, next run the app in a container.
 
+
 Send the following bash command:
+
 docker run --rm aste580-app:latest
+
 
 Output should result in the completion of the program. Output of the MATLAB script looks like this:
 
@@ -65,11 +72,35 @@ Output should result in the completion of the program. Output of the MATLAB scri
 
 
 For testing Kubernetes:
-Check if kubectl is working:
+
+
+Check if kubectl is working
+
+
+Send the following bash command:
+
 bashkubectl cluster-info
 
-Deploy your app:
+
+
+Deploy your app
+
+
+Send the following bash command:
+
 bashkubectl apply -f kubernetes-deployment.yaml
 
+
 Check if it's running:
+
+
+Send the following bash command:
+
 bashkubectl get pods
+
+
+Output should look like:
+
+NAME                           READY   STATUS    RESTARTS   AGE
+aste580-app-[random-id]        1/1     Running   0          30s
+aste580-app-[random-id]        1/1     Running   0          30s
