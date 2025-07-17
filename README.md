@@ -99,8 +99,4 @@ Send the following bash command:
 bashkubectl get pods
 
 
-Output should look like:
 
-NAME                           READY   STATUS    RESTARTS   AGE
-aste580-app-[random-id]        1/1     Running   0          30s
-aste580-app-[random-id]        1/1     Running   0          30s
