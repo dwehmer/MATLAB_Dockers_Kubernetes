@@ -1,0 +1,52 @@
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  DOCKER_IMAGE: $CI_REGISTRY_IMAGE/aste580-app:$CI_COMMIT_SHA
+  DOCKER_LATEST: $CI_REGISTRY_IMAGE/aste580-app:latest
+
+# Build stage
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $DOCKER_IMAGE .
+    - docker tag $DOCKER_IMAGE $DOCKER_LATEST
+    - docker push $DOCKER_IMAGE
+    - docker push $DOCKER_LATEST
+  only:
+    - main
+    - develop
+
+# Test stage (run the container to make sure it works)
+test:
+  stage: test
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker pull $DOCKER_IMAGE
+    - docker run --rm $DOCKER_IMAGE
+  only:
+    - main
+    - develop
+
+# Deploy stage (for production)
+deploy:
+  stage: deploy
+  image: bitnami/kubectl:latest
+  script:
+    - sed -i "s|aste580-app:latest|$DOCKER_IMAGE|g" kubernetes-deployment.yaml
+    - kubectl apply -f kubernetes-deployment.yaml
+    - kubectl rollout status deployment/aste580-app
+  only:
+    - main
+  when: manual  # Require manual approval for deployment
