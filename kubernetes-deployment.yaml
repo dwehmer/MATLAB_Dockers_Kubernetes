@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aste580-app
+  labels:
+    app: aste580-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: aste580-app
+  template:
+    metadata:
+      labels:
+        app: aste580-app
+    spec:
+      containers:
+      - name: aste580-container
+        image: aste580-app:latest
+
+        
+        restartPolicy: OnFailure
+
