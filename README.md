@@ -45,3 +45,31 @@ CI/CD Pipeline
 
 
 
+
+
+How to test:
+
+Download the files, navigate to the correct folder in bash.
+
+Send the following bash command:
+docker build -t aste580-app:latest .
+
+Once successfully built, next run the app in a container.
+
+Send the following bash command:
+docker run --rm aste580-app:latest
+
+Output should result in the completion of the program. Output of the MATLAB script looks like this:
+
+<img width="552" height="490" alt="Screen Shot 2025-07-16 at 9 41 48 PM" src="https://github.com/user-attachments/assets/fee260b6-4d63-4078-8fe4-77c05f2d5e13" />
+
+
+For testing Kubernetes:
+Check if kubectl is working:
+bashkubectl cluster-info
+
+Deploy your app:
+bashkubectl apply -f kubernetes-deployment.yaml
+
+Check if it's running:
+bashkubectl get pods
