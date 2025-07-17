@@ -20,22 +20,28 @@ This command would generate a standalone C++ library to store the C++ compiled c
 
 DockerFile
 
-This file buids the ASTE580_WEHMER_HW7_P1 C++ file in a container.
+File Name: DockerFile.txt
 
+- This file buids the ASTE580_WEHMER_HW7_P1 C++ file in a container.
+
+Kubernetes
 
 kubernetes-deployment.yaml
 
-This file is used to deploy the application to Kubernetes.
+- This file is used to deploy the application to Kubernetes.
 
+Shell Script
 
 build-deploy.sh
 
-This is a helper script to build and deploy the pipeline.
+- This is a helper script to build and deploy the pipeline.
 
+
+CI/CD Pipeline
 
 .gitlab-ci.yml
 
-This file is used to create an automated CI/CD pipeline.
+- This file is used to create an automated CI/CD pipeline.
 
 
 
